@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
+
+:root {
+  --color-primary-blue: hsl(228, 39%, 23%);
+  --color-primary-red: hsl(12, 88%, 59%);
+  --color-secondary-grayblue: hsl(227, 12%, 61%);
+  --color-secondary-darkblue: hsl(233, 12%, 13%);
+  --color-secondary-palered: hsl(13, 100%, 96%);
+  --color-secondary-gray: hsl(0, 0%, 98%);
+}
+
+html {
+  height: 100vh;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  line-height: 1.6;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  padding: unset;
+  margin: unset;
+  display: flex;
+  align-items: center;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+#app {
+  min-height: 100%;
+  margin: 0 auto;
+  font-weight: normal;
+}
