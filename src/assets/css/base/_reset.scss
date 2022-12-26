@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
 
 :root {
-  --color-primary-blue: hsl(228, 39%, 23%);
-  --color-primary-red: hsl(12, 88%, 59%);
-  --color-secondary-grayblue: hsl(227, 12%, 61%);
-  --color-secondary-darkblue: hsl(233, 12%, 13%);
-  --color-secondary-palered: hsl(13, 100%, 96%);
-  --color-secondary-gray: hsl(0, 0%, 98%);
+  --color-dark-cyan: hsl(180, 29%, 50%);
+  --color-primary-cyan: hsl(180, 52%, 96%);
+  --color-secondary-cyan: hsl(180, 31%, 95%);
+  --color-grayish-cyan: hsl(180, 8%, 52%);
+  --color-dark--grayish-cyan: hsl(180, 14%, 20%);
 }
 
 html {
@@ -17,7 +16,7 @@ html {
 body {
   height: 100%;
   line-height: 1.6;
-  font-family: "Be Vietnam Pro", sans-serif;
+  font-family: "League Spartan", sans-serif;
   font-size: 1.6rem;
   cursor: pointer;
   text-rendering: optimizeLegibility;
