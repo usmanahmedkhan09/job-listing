@@ -1,5 +1,7 @@
 <template>
-  <header class="header"></header>
+  <header class="header">
+    <div class="header__autocomplete" contenteditable="true"></div>
+  </header>
   <main class="content"></main>
 </template>
 <script lang="ts">

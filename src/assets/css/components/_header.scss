@@ -8,4 +8,19 @@
     repeat: no-repeat;
     size: 100% 100%;
   }
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &__autocomplete {
+    height: 70px;
+    // background-color: var(--color-secondary-cyan);
+    background-color: white;
+    width: 80%;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -30px;
+    margin: auto;
+  }
 }
