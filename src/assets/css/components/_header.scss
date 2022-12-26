@@ -1,0 +1,11 @@
+@use "../base/" as *;
+
+.header {
+  min-height: 200px;
+  background-image: url("../images/bg-header-desktop.svg");
+  background-color: var(--color-dark-cyan);
+  background: {
+    repeat: no-repeat;
+    size: 100%;
+  }
+}
