@@ -15,6 +15,13 @@
         <li>{{ job?.location }}</li>
       </ul>
     </div>
+    <ul class="jobsCard__tools">
+      <li>{{ job?.role }}</li>
+      <li>{{ job?.level }}</li>
+      <li v-for="(language, index) in job?.languages" :key="index">
+        {{ language }}
+      </li>
+    </ul>
   </div>
 </template>
 <script lang="ts">

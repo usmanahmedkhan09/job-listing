@@ -72,5 +72,21 @@
         }
       }
     }
+
+    &__tools {
+      float: right;
+      li {
+        margin: 0px 16px;
+        height: 20px;
+        width: fit-content;
+        padding: 10px 10px;
+        display: flex;
+        align-items: center;
+        background-color: var(--color-dark-cyan);
+        color: white;
+        border-radius: 5px;
+        font-size: 1.4rem;
+      }
+    }
   }
 }
