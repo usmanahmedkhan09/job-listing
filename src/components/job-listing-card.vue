@@ -1,6 +1,19 @@
 <template>
   <div class="jobsCard">
-    <img :src="getImageUrl(job?.logo)" alt="" />
+    <div class="jobsCard__image">
+      <img class="" :src="getImageUrl(job?.logo)" alt="" />
+    </div>
+    <div class="jobsCard__des">
+      <p class="title">
+        {{ job?.company }} <span class="new" v-if="job?.new">NEW!</span>
+      </p>
+      <p class="position">{{ job?.position }}</p>
+      <ul class="list">
+        <li>{{ job?.postedAt }}</li>
+        <li>{{ job?.contract }}</li>
+        <li>{{ job?.location }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 <script lang="ts">
