@@ -6,6 +6,7 @@
     <div class="jobsCard__des">
       <p class="title">
         {{ job?.company }} <span class="new" v-if="job?.new">NEW!</span>
+        <span class="feature" v-if="job?.featured">featured</span>
       </p>
       <p class="position">{{ job?.position }}</p>
       <ul class="list">
