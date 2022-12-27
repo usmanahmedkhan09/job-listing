@@ -1,5 +1,5 @@
 <template>
-  <div class="jobsCard">
+  <div class="jobsCard" :class="job?.new && job?.featured ? 'bordered' : ''">
     <div class="jobsCard__image">
       <img class="" :src="getImageUrl(job?.logo)" alt="" />
     </div>
