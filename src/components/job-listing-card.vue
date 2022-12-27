@@ -21,6 +21,9 @@
       <li v-for="(language, index) in job?.languages" :key="index">
         {{ language }}
       </li>
+      <li v-for="(tool, index) in job?.tools" :key="index">
+        {{ tool }}
+      </li>
     </ul>
   </div>
 </template>
