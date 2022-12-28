@@ -15,6 +15,7 @@
         <li>{{ job?.location }}</li>
       </ul>
     </div>
+    <hr class="jobsCard__seperator" />
     <ul class="jobsCard__tools">
       <li>{{ job?.role }}</li>
       <li>{{ job?.level }}</li>
