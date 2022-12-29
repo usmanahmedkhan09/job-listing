@@ -62,5 +62,11 @@
       outline: none;
       margin: auto 0px;
     }
+
+    .clear {
+      color: var(--color-dark-cyan);
+      border-bottom: 1px solid var(--color-dark-cyan);
+      margin-left: auto;
+    }
   }
 }

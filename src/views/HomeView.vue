@@ -7,7 +7,7 @@
         :key="index"
       >
         <span class="keyword">{{ item }}</span>
-        <div class="icon">
+        <div class="icon" @click="clearFilter(item)">
           <img src="../assets/images/icon-remove.svg" alt="" />
         </div>
       </div>
@@ -17,6 +17,14 @@
         type="text"
         @keypress.enter="handleKeyword($event)"
       />
+      <p
+        v-if="selectfilters.length > 0"
+        @click="clearFilter()"
+        class="clear"
+        href="#"
+      >
+        Clear
+      </p>
       <!-- <div
         ref="input"
         class="input"
@@ -53,10 +61,26 @@ export default defineComponent({
     const handleKeyword = (e: any) => {
       selectfilters.value.push(keyword.value);
       keyword.value = "";
-      // input.value.innerText = "";
     };
 
-    return { jobs, handleKeyword, updateInput, selectfilters, input, keyword };
+    const clearFilter = (value: string = "") => {
+      if (value) {
+        selectfilters.value = selectfilters.value.filter(
+          (item: any) => item != value
+        );
+      } else {
+        selectfilters.value = [];
+      }
+    };
+    return {
+      jobs,
+      handleKeyword,
+      updateInput,
+      selectfilters,
+      input,
+      keyword,
+      clearFilter,
+    };
   },
 });
 </script>
