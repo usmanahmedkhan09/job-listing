@@ -16,7 +16,7 @@
   &__autocomplete {
     height: 70px;
     background-color: white;
-    width: 80%;
+    width: 77%;
     border-radius: 10px;
     position: absolute;
     bottom: -30px;
@@ -27,5 +27,40 @@
     display: flex;
     align-items: center;
     padding: 16px;
+
+    &--filters {
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+
+      .keyword {
+        padding: 0px 10px;
+        display: inline-block;
+        background-color: var(--color-secondary-cyan);
+        flex: 80%;
+        color: var(--color-dark-cyan);
+        border-radius: 5px 0px 0px 5px;
+        font-size: 1.6rem;
+      }
+
+      .icon {
+        display: grid;
+        place-content: center;
+        flex: 20%;
+        min-width: 25px;
+        height: 26px;
+        background-color: var(--color-dark-cyan);
+        border-radius: 0px 5px 5px 0px;
+
+        &:hover {
+          background-color: var(--color-dark--grayish-cyan);
+        }
+      }
+    }
+    .input {
+      border: none;
+      outline: none;
+      margin: auto 0px;
+    }
   }
 }

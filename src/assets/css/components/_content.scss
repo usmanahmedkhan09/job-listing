@@ -43,6 +43,10 @@
         top: -24px;
       }
 
+      @include media(">=desktop") {
+        height: unset;
+      }
+
       img {
         object-fit: cover;
         height: 100%;
