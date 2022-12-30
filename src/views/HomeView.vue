@@ -85,7 +85,20 @@ export default defineComponent({
     };
 
     const filterJobs = () => {
-      console.log(keyword.value);
+      jobs.value = jobs.value.filter((x: any) => {
+        if (
+          x.tools.some(
+            (item: any) => item.toLowerCase() == keyword.value.toLowerCase()
+          ) ||
+          x.languages.some(
+            (item: any) => item.toLowerCase() == keyword.value.toLowerCase()
+          ) ||
+          x.role.toLowerCase() == keyword.value.toLowerCase() ||
+          x.level.toLowerCase() == keyword.value.toLowerCase()
+        ) {
+          return x;
+        }
+      });
     };
 
     return {
