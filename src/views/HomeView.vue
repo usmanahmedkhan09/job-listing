@@ -1,22 +1,25 @@
 <template>
   <header class="header">
     <div class="header__autocomplete">
-      <div
-        class="header__autocomplete--filters"
-        v-for="(item, index) in selectfilters"
-        :key="index"
-      >
-        <span class="keyword">{{ item }}</span>
-        <div class="icon" @click="clearFilter(item)">
-          <img src="../assets/images/icon-remove.svg" alt="" />
+      <div class="header__autocomplete--filtersWrapper">
+        <div
+          class="header__autocomplete--filters"
+          v-for="(item, index) in selectfilters"
+          :key="index"
+        >
+          <span class="keyword">{{ item }}</span>
+          <div class="icon" @click="clearFilter(item)">
+            <img src="../assets/images/icon-remove.svg" alt="" />
+          </div>
         </div>
+        <input
+          v-model="keyword"
+          class="input"
+          type="text"
+          @keypress.enter="handleKeyword($event)"
+        />
       </div>
-      <input
-        v-model="keyword"
-        class="input"
-        type="text"
-        @keypress.enter="handleKeyword($event)"
-      />
+
       <p
         v-if="selectfilters.length > 0"
         @click="clearFilter()"
