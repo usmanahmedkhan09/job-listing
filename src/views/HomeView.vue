@@ -16,6 +16,7 @@
           v-model="keyword"
           class="input"
           type="text"
+          @input="debounceOnInput(filterJobs)"
           @keypress.enter="handleKeyword($event)"
         />
       </div>
@@ -55,6 +56,8 @@ export default defineComponent({
 
     let keyword = ref("");
 
+    let timeout = ref();
+
     let selectfilters = ref<any[]>([]);
 
     const updateInput = (e: any) => {
@@ -75,6 +78,16 @@ export default defineComponent({
         selectfilters.value = [];
       }
     };
+
+    const debounceOnInput = (func: any, ms: number = 1000) => {
+      clearTimeout(timeout.value);
+      timeout.value = setTimeout(() => func(), ms);
+    };
+
+    const filterJobs = () => {
+      console.log(keyword.value);
+    };
+
     return {
       jobs,
       handleKeyword,
@@ -83,6 +96,9 @@ export default defineComponent({
       input,
       keyword,
       clearFilter,
+      filterJobs,
+      timeout,
+      debounceOnInput,
     };
   },
 });
