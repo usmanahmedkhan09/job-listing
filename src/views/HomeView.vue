@@ -16,7 +16,7 @@
           v-model="keyword"
           class="input"
           type="text"
-          @input="debounceOnInput(filterJobs)"
+          @input="debounceOnInput(searchJobs)"
           @keypress.enter="handleKeyword($event)"
         />
       </div>
@@ -29,21 +29,19 @@
       >
         Clear
       </p>
-      <!-- <div
-        ref="input"
-        class="input"
-        contenteditable="true"
-        @keypress.enter="handleKeyword($event)"
-        @input="updateInput($event)"
-      ></div> -->
     </div>
   </header>
   <main class="content">
-    <jobListingCardVue v-for="(item, index) in jobs" :key="index" :job="item" />
+    <jobListingCardVue
+      v-for="(item, index) in filteredJobs"
+      :key="index"
+      :job="item"
+      @filterJobs="(value) => filterJobs(value)"
+    />
   </main>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import jobListingCardVue from "@/components/job-listing-card.vue";
 import jobsData from "../assets/data.json";
 
@@ -60,6 +58,23 @@ export default defineComponent({
 
     let selectfilters = ref<any[]>([]);
 
+    const filteredJobs = computed(() => {
+      if (selectfilters.value.length > 0) {
+        return jobs.value.filter((x: any) => {
+          if (
+            selectfilters.value.includes(x.role) ||
+            selectfilters.value.includes(x.level) ||
+            x.tools.some((item: any) => selectfilters.value.includes(item)) ||
+            x.languages.some((item: any) => selectfilters.value.includes(item))
+          ) {
+            return x;
+          }
+        });
+      } else {
+        return jobs.value;
+      }
+    });
+
     const updateInput = (e: any) => {
       keyword.value = e.target.innerText;
     };
@@ -74,6 +89,7 @@ export default defineComponent({
         selectfilters.value = selectfilters.value.filter(
           (item: any) => item != value
         );
+        filterJobs();
       } else {
         selectfilters.value = [];
       }
@@ -84,7 +100,7 @@ export default defineComponent({
       timeout.value = setTimeout(() => func(), ms);
     };
 
-    const filterJobs = () => {
+    const searchJobs = () => {
       jobs.value = jobs.value.filter((x: any) => {
         if (
           x.tools.some(
@@ -101,6 +117,12 @@ export default defineComponent({
       });
     };
 
+    const filterJobs = (payload: any = null) => {
+      if (payload) {
+        selectfilters.value.push(payload);
+      }
+    };
+
     return {
       jobs,
       handleKeyword,
@@ -109,9 +131,11 @@ export default defineComponent({
       input,
       keyword,
       clearFilter,
-      filterJobs,
+      searchJobs,
       timeout,
       debounceOnInput,
+      filterJobs,
+      filteredJobs,
     };
   },
 });

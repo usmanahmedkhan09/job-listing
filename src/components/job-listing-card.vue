@@ -17,13 +17,13 @@
     </div>
     <hr class="jobsCard__seperator" />
     <ul class="jobsCard__tools">
-      <li>{{ job?.role }}</li>
-      <li>{{ job?.level }}</li>
+      <li @click="$emit('filterJobs', job?.role)">{{ job?.role }}</li>
+      <li @click="$emit('filterJobs', job?.level)">{{ job?.level }}</li>
       <li v-for="(language, index) in job?.languages" :key="index">
-        {{ language }}
+        <span @click="$emit('filterJobs', language)">{{ language }}</span>
       </li>
       <li v-for="(tool, index) in job?.tools" :key="index">
-        {{ tool }}
+        <span @click="$emit('filterJobs', tool)">{{ tool }}</span>
       </li>
     </ul>
   </div>
