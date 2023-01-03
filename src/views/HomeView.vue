@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__autocomplete">
+    <div class="header__autocomplete" v-if="selectfilters.length > 0">
       <div class="header__autocomplete--filtersWrapper">
         <div
           class="header__autocomplete--filters"
